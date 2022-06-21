@@ -12,6 +12,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+// TESTING TEMPLATE
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "pug");
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/test", (req, res) => {
+  res.render("test");
+});
+
 // Start server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

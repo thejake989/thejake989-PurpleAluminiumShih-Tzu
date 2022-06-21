@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./views/**/*.{pug}}"],
+  content: ["./views/**/*.pug"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        "google-fonts": ["Lato", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
