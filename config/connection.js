@@ -8,7 +8,6 @@ let sequelize;
 
 // Create sequelize instanced
 // Configure to use Heroku environmental variables if present
-
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
