@@ -1,10 +1,39 @@
+extends layouts/main.pug
 
-header
-    nav 
-     a(class='form' `accent-magenta-700`) First Name 
-     
-     a(class='form' `accent-magenta-700`) Last Name
-     
-     a(class='form' `accent-magenta-700`) Email Adress 
-     
-     a(class='form' `accent-magenta-700`) Password
+
+block content 
+
+ 
+    section.py-24.bg-white(class='md:py-32')
+    .container.px-4.mx-auto
+        .max-w-sm.mx-auto
+        .mb-6.text-center
+            a.inline-block.mb-6(href='#')
+            img.h-16(src='flex-ui-assets/logos/flex-circle-green.svg' alt='')
+            h3.mb-4.text-2xl.font-bold(class='md:text-3xl') Join our community
+            p.text-lg.text-coolGray-500.font-medium Start your journey with our product
+        form.w-full.max-w-lg.mx-auto
+            .mb-6
+            label.block.mb-2.text-coolGray-800.font-medium(for='') Name*
+            input.appearance-none.block.w-full.p-3.leading-5.text-coolGray-900.border.border-coolGray-200.rounded-lg.shadow-md.placeholder-coolGray-400(class='focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50' type='name' placeholder='')
+            .mb-6
+            label.block.mb-2.text-coolGray-800.font-medium(for='') Email*
+            input.appearance-none.block.w-full.p-3.leading-5.text-coolGray-900.border.border-coolGray-200.rounded-lg.shadow-md.placeholder-coolGray-400(class='focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50' type='name' placeholder='')
+            .mb-4
+            label.block.mb-2.text-coolGray-800.font-medium(for='') Password*
+            input.appearance-none.block.w-full.p-3.leading-5.text-coolGray-900.border.border-coolGray-200.rounded-lg.shadow-md.placeholder-coolGray-400(class='focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50' type='password' placeholder='')
+            .flex.flex-wrap.items-center.justify-between.mb-6
+            .w-full(class='md:w-1/2')
+                label.relative.inline-flex.items-center
+                input.form-checkbox.appearance-none(type='checkbox')
+                img.absolute.transform.left-0(class='top-1/2 -translate-y-1/2' src='flex-ui-assets/elements/sign-up/checkbox-icon.svg' alt='')
+                span.ml-7.text-xs.text-coolGray-800.font-medium Remember me
+            .w-full.mt-1(class='md:w-auto')
+                a.inline-block.text-xs.font-medium.text-green-500(class='hover:text-green-600' href='#') Forgot your password?
+            a.inline-block.py-3.px-7.mb-4.w-full.text-base.text-green-50.font-medium.text-center.leading-6.bg-green-500.rounded-md.shadow-sm(class='hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50' href='#') Sign Up
+            a.inline-flex.items-center.justify-center.py-3.px-7.mb-6.w-full.text-base.text-coolGray-500.font-medium.text-center.leading-6.bg-white.border.border-coolGray-100.rounded-md.shadow-sm(class='hover:border-coolGray-200' href='#')
+            img.mr-2(src='flex-ui-assets/elements/sign-up/google-icon-sign-up.svg' alt='')
+            p.text-center
+            span.text-xs.font-medium Already have an account?
+            a.inline-block.text-xs.font-medium.text-green-500(class='hover:text-green-600 hover:underline' href='#') Sign In
+    
