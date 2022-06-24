@@ -40,6 +40,13 @@ app.get("/test", (req, res) => {
 app.get("/login", (req, res) => {
   res.render("login");
 });
+app.get("/homepage", (req, res) => {
+  res.render("homepage");
+});
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
 
 app.get("/dashboard", (req, res) => {
   res.render("dashboard");
