@@ -41,6 +41,14 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.get("/dashboard", (req, res) => {
+  res.render("dashboard");
+});
+
+app.get("/main", (req, res) => {
+  res.render("main");
+});
+
 app.use(routes);
 
 // Start server

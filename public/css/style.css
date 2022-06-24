@@ -745,11 +745,6 @@ video {
     width: auto;
   }
 
-  .md\:py-32 {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
