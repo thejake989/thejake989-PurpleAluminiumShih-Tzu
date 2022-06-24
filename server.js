@@ -24,6 +24,10 @@ app.get("/", (req, res) => {
 app.get("/test", (req, res) => {
   res.render("test");
 });
+app.get("/homepage", (req, res) => {
+  res.render("homepage");
+});
+
 
 app.use(routes);
 
