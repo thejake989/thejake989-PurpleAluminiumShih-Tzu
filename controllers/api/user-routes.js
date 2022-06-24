@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 // TO DO: Import models
-// const {} = require("../../models")
+const { User } = require("../../models");
 
 // Import authentication middleware
 const withAuth = require("../../utils/auth");
