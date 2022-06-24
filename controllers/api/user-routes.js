@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 // TO DO: Import models
-const { User } = require("../../models");
+const { User, Poll } = require("../../models");
 
 // Import authentication middleware
 const withAuth = require("../../utils/auth");
@@ -27,7 +27,12 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-      // TO DO: Include the polls this user has created
+      include: [
+        {
+          model: Poll,
+          attributes: ["id", "title", "is_open", "created_at"],
+        },
+      ],
     });
     if (!dbData) {
       res.status(404).json({ message: "No user with this ID" });

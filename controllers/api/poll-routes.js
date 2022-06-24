@@ -79,5 +79,24 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE an existing poll
+router.delete("/:id", async (req, res) => {
+  try {
+    const dbResponse = await Poll.destroy({
+      where: { id: req.params.id },
+    });
+
+    if (!dbResponse) {
+      res.status(404).json({ message: "No poll was found with this ID" });
+      return;
+    }
+
+    res.json({
+      message: `Poll with ID #${req.params.id} successfully deleted`,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
