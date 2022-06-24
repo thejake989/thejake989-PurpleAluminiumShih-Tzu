@@ -2,6 +2,7 @@
 const express = require("express");
 const sequelize = require("./config/connection");
 const path = require("path");
+const routes = require("./controllers");
 
 // Create express server
 const app = express();
@@ -23,6 +24,12 @@ app.get("/", (req, res) => {
 app.get("/test", (req, res) => {
   res.render("test");
 });
+app.get("/homepage", (req, res) => {
+  res.render("homepage");
+});
+
+
+app.use(routes);
 
 // Start server
 sequelize.sync({ force: false }).then(() => {
