@@ -14,6 +14,7 @@ router.get("/", async (req, res) => {
     });
     res.json(dbData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -34,6 +35,7 @@ router.get("/:id", async (req, res) => {
     }
     res.json(dbData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -57,6 +59,7 @@ router.post("/", async (req, res) => {
       res.json(dbResponse);
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -75,7 +78,7 @@ router.post("/login", async (req, res) => {
     }
 
     // Validate password
-    const isPasswordValid = dbData.checkPassword(req.body.password);
+    const isPasswordValid = dbData.validatePassword(req.body.password);
     if (!isPasswordValid) {
       res.status(400).json({ message: "Incorrect email or password" });
       return;
@@ -91,6 +94,7 @@ router.post("/login", async (req, res) => {
       res.json({ user: dbData, message: "Successfully logged in" });
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -108,3 +112,5 @@ router.post("/logout", withAuth, (req, res) => {
 
 // TO DO: Update user with PUT route
 // TO DO: Delete user with DELETE route
+
+module.exports = router;
