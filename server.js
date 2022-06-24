@@ -23,8 +23,8 @@ app.get("/", (req, res) => {
 app.get("/test", (req, res) => {
   res.render("test");
 });
-app.get("/homepage", (req, res) => {
-  res.render("homepage");
+app.get("/login", (req, res) => {
+  res.render("login");
 });
 
 
