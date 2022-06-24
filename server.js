@@ -49,6 +49,10 @@ app.get("/main", (req, res) => {
   res.render("main");
 });
 
+app.get("/homepage", (req, res) => {
+  res.render("homepage");
+});
+
 app.use(routes);
 
 // Start server
