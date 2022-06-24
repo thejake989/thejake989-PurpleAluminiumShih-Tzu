@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 // TO DO: Import models
-// const {} = require("../../models")
+const {} = require("../../models");
 
 // Import authentication middleware
 const withAuth = require("../../utils/auth");
@@ -108,3 +108,5 @@ router.post("/logout", withAuth, (req, res) => {
 
 // TO DO: Update user with PUT route
 // TO DO: Delete user with DELETE route
+
+module.exports = router;
