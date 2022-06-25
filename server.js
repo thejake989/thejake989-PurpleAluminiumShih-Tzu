@@ -34,10 +34,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-// TESTING TEMPLATE. DELETE THESE LATER!
-app.get("/", (req, res) => {
-  res.render("index");
-});
+
 
 app.get("/test", (req, res) => {
   res.render("test");

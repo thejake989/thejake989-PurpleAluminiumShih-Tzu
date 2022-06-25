@@ -8,8 +8,17 @@
   </head>
   <body>
     <header>
-      {{! Header code here }}
-    </header>
+       <h1>
+        <a href="/">Ranked Choice Voting</a>
+      </h1>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
     <main>
       {{! Content from pages will be placed here }}
       {{{body}}}
