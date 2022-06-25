@@ -52,23 +52,7 @@ app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
 
-<<<<<<< HEAD
-
-app.get("/dashboard", (req, res) => {
-  res.render("dashboard");
-});
-
-app.get("/main", (req, res) => {
-  res.render("main");
-});
-
-app.get("/homepage", (req, res) => {
-  res.render("homepage");
-});
-
-=======
 // Expose routes
->>>>>>> c140ca41d92f63aab705a9ab4d99bde83588805a
 app.use(routes);
 
 // Start server
