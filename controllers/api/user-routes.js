@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 // TO DO: Import models
-const { User } = require("../../models");
+const { User, Poll } = require("../../models");
 
 // Import authentication middleware
 const withAuth = require("../../utils/auth");
@@ -27,7 +27,13 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
-      // TO DO: Include the polls this user has created
+      // added created polls for user navigation page
+      include: [
+        {
+          model: Poll,
+          attributes: ["id", "title", "is_open", "created_at"],
+        },
+      ],
     });
     if (!dbData) {
       res.status(404).json({ message: "No user with this ID" });
@@ -56,7 +62,7 @@ router.post("/", async (req, res) => {
       req.session.loggedIn = true;
 
       // Send user data to client
-      res.json(dbResponse);
+      res.json({ message: `User ${req.body.username} successfully created` });
     });
   } catch (err) {
     console.log(err);
@@ -105,6 +111,8 @@ router.post("/logout", withAuth, (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
+
+    res.json({ message: "Successfully logged out" });
   } else {
     res.status(404).end();
   }
