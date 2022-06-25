@@ -34,21 +34,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
-
-
-app.get("/test", (req, res) => {
-  res.render("test");
-});
-app.get("/login", (req, res) => {
-  res.render("login");
-});
-app.get("/homepage", (req, res) => {
-  res.render("homepage");
-});
-app.get("/dashboard", (req, res) => {
-  res.render("dashboard");
-});
-
 // Expose routes
 app.use(routes);
 

@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./views/**/*.pug"],
+  content: ["./views/**/*.handlebars"],
   theme: {
     extend: {
       fontFamily: {
