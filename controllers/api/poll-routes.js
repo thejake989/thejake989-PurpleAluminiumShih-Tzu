@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Poll, User } = require("../../models");
+const { Poll, User, Choices } = require("../../models");
 
 // GET all polls
 router.get("/", async (req, res) => {
@@ -23,6 +23,16 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+        {
+          model: Choices,
+          attributes: ["id", "choice_name"],
+        },
+      ],
     });
 
     if (!dbData) {

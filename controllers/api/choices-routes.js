@@ -45,7 +45,7 @@ router.put("/:id", async (req, res) => {
       { where: { id: req.params.id } }
     );
 
-    if (!dbResponse) {
+    if (!dbResponse[0]) {
       res.status(404).json({ message: "No choices found with this ID" });
       return;
     }
@@ -60,5 +60,24 @@ router.put("/:id", async (req, res) => {
 });
 
 // DELETE choice
+router.delete("/:id", async (req, res) => {
+  try {
+    const dbResponse = await Choices.destroy({
+      where: { id: req.params.id },
+    });
+
+    if (!dbResponse) {
+      res.status(404).json({ message: "No choices found with this ID" });
+      return;
+    }
+
+    res.json({
+      message: `Choice with ID #${req.params.id} successfully deleted`,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
