@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { User, Poll, Choices } = require("../../models");
+const { User, Poll, Choices, Vote } = require("../../models");
 
 // GET all choices
 router.get("/", async (req, res) => {
@@ -34,6 +34,21 @@ router.post("/", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+  }
+});
+
+// PUT choice rank
+router.put("/rank", (req, res) => {
+  if (req.session) {
+    Choices.rank(
+      { ...req.body, user_id: req.session.user_id },
+      { User, Poll, Vote }
+    )
+      .then((rankedChoice) => res.json(rankedChoice))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   }
 });
 

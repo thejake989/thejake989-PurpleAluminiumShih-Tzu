@@ -8,5 +8,6 @@ const votesRoutes = require("./votes-routes");
 router.use("/users", userRoutes);
 router.use("/polls", pollRoutes);
 router.use("/choices", choicesRoutes);
+router.use("/votes", votesRoutes);
 
 module.exports = router;
