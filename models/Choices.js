@@ -1,7 +1,16 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Choices extends Model {}
+class Choices extends Model {
+  static rank(body, models) {
+    return models.Vote.create({
+      user_id: body.user_id,
+      poll_id: body.poll_id,
+      choice_id: body.id,
+      rank_value: body.rank_value,
+    });
+  }
+}
 
 Choices.init(
   {
