@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { Poll, User, Choices } = require("../../models");
+const { sequelize } = require("../../models/User");
 
 // GET all polls
 router.get("/", async (req, res) => {
@@ -30,7 +31,16 @@ router.get("/:id", async (req, res) => {
         },
         {
           model: Choices,
-          attributes: ["id", "choice_name"],
+          attributes: [
+            "id",
+            "choice_name",
+            [
+              sequelize.literal(
+                "(SELECT SUM(rank_value) FROM vote WHERE choices.id = vote.choice_id)"
+              ),
+              "rank_score",
+            ],
+          ],
         },
       ],
     });
