@@ -1,5 +1,5 @@
 
-async function signupFormHandler(event) {
+/*async function signupFormHandler(event) {
     event.preventDefault();
   
     const username = document.querySelector('#username-signup').value.trim();
@@ -22,7 +22,7 @@ async function signupFormHandler(event) {
             alert(response.statusText);
         }
       }
-    }
+    }*/
 
     async function loginFormHandler(event) {
         event.preventDefault();
@@ -50,4 +50,4 @@ async function signupFormHandler(event) {
 
 
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+//document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);

@@ -17,5 +17,14 @@ router.get("/login", (req, res) => {
   // }
   res.render("login");
 });
+// Render Signup
+router.get("/signup", (req, res) => {
+  // SET UP REDIRECT LATER
 
+  // if(req.session.loggedIn) {
+  //   res.redirect("/")
+  //   return
+  // }
+  res.render("signup");
+});
 module.exports = router;
