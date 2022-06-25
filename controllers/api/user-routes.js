@@ -62,7 +62,7 @@ router.post("/", async (req, res) => {
       req.session.loggedIn = true;
 
       // Send user data to client
-      res.json(dbResponse);
+      res.json({ message: `User ${req.body.username} successfully created` });
     });
   } catch (err) {
     console.log(err);
@@ -111,6 +111,8 @@ router.post("/logout", withAuth, (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
+
+    res.json({ message: "Successfully logged out" });
   } else {
     res.status(404).end();
   }
