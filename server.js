@@ -4,6 +4,10 @@ const sequelize = require("./config/connection");
 const path = require("path");
 const routes = require("./controllers");
 const session = require("express-session");
+const exphbs = require("express-handlebars");
+
+// Initialize handlebars
+const hbs = exphbs.create();
 
 // Create express server
 const app = express();
@@ -26,10 +30,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// TESTING TEMPLATE
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
+// Setup template engine
+app.engine("handlebars", hbs.engine);
+app.set("view engine", "handlebars");
 
+// TESTING TEMPLATE. DELETE THESE LATER!
 app.get("/", (req, res) => {
   res.render("index");
 });
@@ -47,7 +52,7 @@ app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
 
-
+// Expose routes
 app.use(routes);
 
 // Start server
