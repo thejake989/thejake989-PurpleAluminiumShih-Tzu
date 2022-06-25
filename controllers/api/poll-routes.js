@@ -1,8 +1,6 @@
-const e = require("express");
 const express = require("express");
 const router = express.Router();
 const { Poll, User } = require("../../models");
-const withAuth = require("../../utils/auth");
 
 // GET all polls
 router.get("/", async (req, res) => {

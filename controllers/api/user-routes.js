@@ -27,6 +27,7 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
+      // added created polls for user navigation page
       include: [
         {
           model: Poll,
