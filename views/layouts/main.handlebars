@@ -6,25 +6,32 @@
     <link rel="stylesheet" href="/css/style.css" />
     <title>Ranked Choice Voting</title>
   </head>
+  
   <body>
-    <header>
-       <h1>
-        <a href="/">Ranked Choice Voting</a>
-      </h1>
+
+  
       <nav>
         {{#if loggedIn}}
         <a href="/dashboard">dashboard</a>
         <button id="logout" class="btn-no-style">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a class="text-left" href="/login">Login</a>                                                                        
+        <a class="text-right" href="/signup">Signup</a>
+        
         {{/if}}
       </nav>
+    </header>
     <main>
-      {{! Content from pages will be placed here }}
-      {{{body}}}
+      {{{ body }}}
     </main>
     <footer>
-      {{! Footer code here }}
+    
     </footer>
-  </body>
+  </div>
+  
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
+</body>
+
 </html>
