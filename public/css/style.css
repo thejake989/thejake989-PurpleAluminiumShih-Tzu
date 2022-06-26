@@ -565,8 +565,8 @@ video {
 .inline-block {
   display: inline-block;
 }
-.flex {
-  display: flex;
+.h-16 {
+  height: 4rem;
 }
 .w-full {
   width: 100%;
@@ -574,19 +574,13 @@ video {
 .max-w-4xl {
   max-width: 56rem;
 }
+.max-w-sm {
+  max-width: 24rem;
+}
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-}
-.flex-wrap {
-  flex-wrap: wrap;
-}
-.items-center {
-  align-items: center;
-}
-.justify-between {
-  justify-content: space-between;
 }
 .rounded-md {
   border-radius: 0.375rem;
@@ -627,6 +621,10 @@ video {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
 }
+.py-24 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
 .text-left {
   text-align: left;
 }
@@ -644,9 +642,13 @@ video {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
-.text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 .text-xs {
   font-size: 0.75rem;
@@ -663,9 +665,6 @@ video {
 }
 .leading-5 {
   line-height: 1.25rem;
-}
-.leading-6 {
-  line-height: 1.5rem;
 }
 .text-green-50 {
   --tw-text-opacity: 1;
@@ -724,6 +723,11 @@ video {
     padding-bottom: 7rem;
   }
 
+  .md\:py-32 {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
   .md\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -732,5 +736,10 @@ video {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
