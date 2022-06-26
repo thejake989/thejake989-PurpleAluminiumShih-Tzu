@@ -630,8 +630,8 @@ video {
 .mb-20 {
   margin-bottom: 5rem;
 }
-.-mb-6 {
-  margin-bottom: -1.5rem;
+.-mr-8 {
+  margin-right: -2rem;
 }
 .block {
   display: block;
@@ -997,11 +997,6 @@ video {
   .md\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
-  }
-
-  .md\:text-2xl {
-    font-size: 1.5rem;
-    line-height: 2rem;
   }
 }
 @media (min-width: 1280px) {

@@ -4,7 +4,7 @@ const { Poll, User, Vote, Choices } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Render dashboard page
-router.get("/", (req, res) => {
+router.get("/", withAuth, (req, res) => {
   // Get data from database
   res.render("dashboard");
 });
