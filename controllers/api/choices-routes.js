@@ -27,7 +27,7 @@ router.post("/", async (req, res) => {
     const dbResponse = await Choices.create({
       choice_name: req.body.choice_name,
       poll_id: req.body.poll_id,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
     });
 
     res.json(dbResponse);
