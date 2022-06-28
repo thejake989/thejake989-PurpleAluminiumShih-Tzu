@@ -63,7 +63,7 @@ router.post("/", async (req, res) => {
     const dbResponse = await Poll.create({
       is_open: req.body.is_open,
       title: req.body.title,
-      user_id: req.body.user_id,
+      user_id: req.session.user_id,
     });
 
     // send user data
