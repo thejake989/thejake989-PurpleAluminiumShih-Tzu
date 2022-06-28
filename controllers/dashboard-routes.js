@@ -6,7 +6,13 @@ const withAuth = require("../utils/auth");
 // Render dashboard page
 router.get("/", withAuth, (req, res) => {
   // Get data from database
-  res.render("dashboard");
+  res.render("dashboard", {
+    loggedIn: true,
+  });
+});
+
+router.get("/create", async (req, res) => {
+  res.render("create-poll");
 });
 
 module.exports = router;
