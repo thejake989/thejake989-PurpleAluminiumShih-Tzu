@@ -49,7 +49,7 @@ router.get("/:id", async (req, res) => {
 // POST a new user
 router.post("/", async (req, res) => {
   try {
-    const dbResponse = User.create({
+    const dbResponse = await User.create({
       username: req.body.username, // <-- Should we track usernames?
       email: req.body.email,
       password: req.body.password,
