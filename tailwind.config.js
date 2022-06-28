@@ -6,6 +6,9 @@ module.exports = {
       fontFamily: {
         "google-fonts": ["Lato", "sans-serif"],
       },
+      gridTemplateRows: {
+        layout: "auto 1fr auto",
+      },
     },
   },
   plugins: [],

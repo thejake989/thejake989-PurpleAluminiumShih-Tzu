@@ -7,7 +7,7 @@ const { sequelize } = require("../../models/User");
 router.get("/", async (req, res) => {
   try {
     const dbData = await Poll.findAll({
-      attributes: ["id", "title", "is_open"],
+      attributes: ["id", "title", "is_open", "user_id"],
       order: [["created_at", "DESC"]],
     });
     res.json(dbData);

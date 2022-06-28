@@ -6,7 +6,17 @@ const withAuth = require("../utils/auth");
 // Render dashboard page
 router.get("/", withAuth, async (req, res) => {
   try {
+    const dbPollData = await Poll.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      attributes: ["id", "title", "is_open"],
+    });
+
+    const polls = dbPollData.map((poll) => poll.get({ plain: true }));
+
     res.render("dashboard", {
+      polls,
       username: req.session.username,
       loggedIn: true,
     });
