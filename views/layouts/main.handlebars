@@ -26,7 +26,7 @@
           </li>
           
           <!--Dashboard button-->
-          <li class="mr-8 hover:rotate-45">                                                           <!--This v is the Icon color-->                   <!--This  v is the nav bar color-->
+          <li class="mr-8 hover:rotate-45">                                                                             
           <a class="flex flex-wrap items-center py-8 text-base font-medium text-coolGray-500 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500" href="http://localhost:3001/dashboard">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" fill="none" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
@@ -35,7 +35,7 @@
           </li>
           
           <!--Polls button-->
-          <li class="mr-8 hover:rotate-45">                                                                                                                                   <!--Link under here V-->
+          <li class="mr-8 hover:rotate-45">                                                                                                              
             <a class="flex flex-wrap items-center py-8 text-base font-medium text-coolGray-500 hover:text-red-500 border-b-2 border-transparent hover:border-red-500" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="24" height="24" fill="none"viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
@@ -44,7 +44,7 @@
           </li>
           
           <!--Create a new poll button-->
-          <li class="mr-8 hover:rotate-45">                                                                                                                                   <!--Link under here V-->
+          <li class="mr-8 hover:rotate-45"> 
             <a class="flex flex-wrap items-center py-8 text-base font-medium text-coolGray-500 hover:text-teal-500 border-b-2 border-transparent hover:border-teal-500" href="#">
               <svg xmlns="http://www.w3.org/2000/svg" class="mr-2" width="24" height="24" fill="none" viewBox="0 0 26 26" stroke="currentColor" stroke-width="2">
   <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
@@ -53,17 +53,14 @@
           </li>
 </section>
 
-  <!--Getting started-->
-      <nav>
+  <!--Getting started
+      <nav class="animate-bounce">
         {{#if loggedIn}}
         <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
+        <button id="logout" class="bg-green-500 mr-8">logout</button>
         {{else}}
-        
-        <!--I commented these out becasue they bring up an unstyled log in and sign up button ontop of the other ones-->
-        <!--<a class="text-left" href="/login">Login</a>                                                                        
-        <a class="text-right" href="/signup">Signup</a>-->
-        
+      <a class="bg-green-500 hover:bg-green-700 text-white text-center py-2 px-4 rounded" href="/login">Login</a>                                                                        
+        <a class="bg-green-500 hover:bg-green-700 text-white text-center py-2 px-4 rounded" href="/signup">Log Out</a>
         {{/if}}
       </nav>
     </header>
@@ -73,7 +70,11 @@
         
     {{#if loggedIn}}
   <script src="public/javascript/logout.js"></script>
-  {{/if}}
+  {{/if}}-->
+        
+        
+        
+        
 </body>
         
     
