@@ -15,6 +15,10 @@ router.get("/create", async (req, res) => {
   res.render("create-poll");
 });
 
+router.get("/create/choices", async (req, res) => {
+  res.render("choices");
+});
+
 module.exports = router;
 
 //If not working apply the get route - withAuth,
