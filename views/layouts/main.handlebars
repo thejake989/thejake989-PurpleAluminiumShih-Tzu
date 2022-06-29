@@ -106,7 +106,7 @@
         {{! Hidden menu. Activated through javascript }}
         <div
           id="hidden-menu"
-          class="absolute w-2/3 p-4 bg-black text-white top-0 -right-full transition-all ease-in-out duration-500"
+          class="absolute md:hidden w-2/3 p-4 bg-black text-white top-0 -right-full transition-all ease-in-out duration-500"
         >
           <div class="flex flex-col">
             <div
@@ -121,7 +121,7 @@
               <li class="mt-4 border border-gray-700 p-2 rounded text-right">
                 {{#if loggedIn}}
                   <p class="text-green-400 font-bold">{{username}}</p>
-                  <p class="logout-btn">Logout</p>
+                  <button class="logout-btn-mobile">Logout</button>
                 {{else}}
                   <a class="underline" href="/login">Login</a>
                 {{/if}}
@@ -133,11 +133,6 @@
       <main class="p-6 overflow-scroll">
         {{{body}}}
       </main>
-
-      {{#if loggedIn}}
-        <script src="/javascript/logout.js"></script>
-      {{/if}}
-
       <!-- Footer Section -->
       <footer>
         <div class="p-4 text-center">
@@ -146,6 +141,9 @@
         </div>
       </footer>
     </div>
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
     <script src="/javascript/main.js"></script>
   </body>
 </html>

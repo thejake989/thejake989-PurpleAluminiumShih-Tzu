@@ -23,15 +23,28 @@
       id="next-step-btn"
     >Next Step</button>
   </form>
-  <form id="choices">
+  <div class="w-full h-[1px] bg-green-300"></div>
+  <form class="hidden" id="choices">
     <h2 class="font-bold text-xl mb-4">Enter your choices</h2>
     <div
       class="grid grid-cols-[1fr_auto] border-2 border-green-400 rounded overflow-hidden"
     >
-      <input class="p-3" type="text" placeholder="Enter choice name" required />
+      <input
+        id="choice-name"
+        class="p-3"
+        type="text"
+        placeholder="Enter choice name"
+        required
+      />
       <button class="p-3 bg-green-500 text-white" type="submit">Add choice</button>
     </div>
-
   </form>
+  <button
+    id="finish-btn"
+    class="w-full hidden p-2 transition-all ease-in-out bg-gray-500 hover:bg-green-400 text-white rounded"
+  >Finish creating poll</button>
+  <ul class="flex flex-col md:grid grid-cols-2 gap-4" id="choiceList">
+
+  </ul>
 </article>
 <script src="/javascript/poll.js"></script>
