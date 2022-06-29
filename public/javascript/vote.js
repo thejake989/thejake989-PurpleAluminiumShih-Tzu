@@ -19,7 +19,21 @@ async function voteSubmitHandler(event) {
     });
   }
 
-  console.log(liArray);
+  liArray.forEach((element) => {
+    const response = fetch("/api/choices/rank", {
+      method: "put",
+      body: JSON.stringify({
+        id: element.id,
+        poll_id: element.poll_id,
+        rank_value: element.rank_value,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+  });
+
+  alert("Vote submitted!");
+
+  document.location.replace("/polls");
 }
 
 document
