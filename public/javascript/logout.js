@@ -11,5 +11,5 @@ async function logout() {
     alert(response.statusText);
   }
 }
-
+document.querySelector(".logout-btn-mobile").addEventListener("click", logout);
 document.querySelector(".logout-btn").addEventListener("click", logout);

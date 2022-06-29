@@ -1,9 +1,15 @@
+const parentEl = document.getElementById("poll-parent");
+const nextStepBtn = document.getElementById("next-step-btn");
+const choicesForm = document.getElementById("choices");
+const finishBtn = document.getElementById("finish-btn");
+const choicesList = document.getElementById("choiceList");
+
+const choicesArr = [];
+
 async function createPoll(event) {
   event.preventDefault();
 
-  const parentEl = document.getElementById("poll-parent");
   const title = document.getElementById("pollTitle").value.trim();
-  const nextStepBtn = document.getElementById("next-step-btn");
 
   if (!title) {
     const error = document.getElementById("error");
@@ -22,16 +28,49 @@ async function createPoll(event) {
     headers: { "Content-Type": "application/json" },
   });
   const data = await response.json();
+  document.getElementById("pollTitle").setAttribute("readonly", "");
   nextStepBtn.setAttribute("disabled", "");
   nextStepBtn.className =
     "bg-gray-300 cursor-not-allowed text-white font-bold p-3 rounded mt-4";
+  choicesForm.style.display = "block";
   if (response.ok) {
     parentEl.dataset.pollId = data.id;
-    // document.location.replace("/dashboard");
-    console.log(data);
   } else {
     alert(response.statusText);
   }
 }
 
+async function addChoiceHandler(event) {
+  event.preventDefault();
+  const choiceName = document.getElementById("choice-name");
+  const choiceText = choiceName.value.trim();
+  choicesArr.push(choiceText);
+  choiceName.value = "";
+  const choiceLi = document.createElement("li");
+  choiceLi.className = "p-2 rounded bg-green-600 text-white";
+  choiceLi.innerText = choiceText;
+  choicesList.append(choiceLi);
+
+  // Show finish button if at least two choices added
+  if (choicesArr.length >= 2) {
+    finishBtn.style.display = "block";
+  }
+}
+
+async function postChoices() {
+  choicesArr.forEach((choice) => {
+    const response = fetch("/api/choices", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        choice_name: choice,
+        poll_id: parentEl.dataset.pollId,
+      }),
+    });
+  });
+  document.location.replace("/dashboard");
+}
+
 document.getElementById("create-poll").addEventListener("submit", createPoll);
+choicesForm.addEventListener("submit", addChoiceHandler);
+finishBtn.addEventListener("click", postChoices);
