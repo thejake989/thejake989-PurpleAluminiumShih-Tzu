@@ -10,7 +10,13 @@
     {{/each}}
   </ul>
   {{#if is_open}}
-    <button type="submit" class="button">Close Poll</button>
+    <button
+      type="submit"
+      class="button"
+      id="close-poll-btn"
+      data-poll_id="{{id}}"
+    >Close Poll</button>
+    <script src="/javascript/close-poll.js"></script>
   {{else}}
     <h3>This poll has closed</h3>
   {{/if}}
