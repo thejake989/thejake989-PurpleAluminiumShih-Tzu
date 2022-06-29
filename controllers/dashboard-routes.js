@@ -113,8 +113,6 @@ router.get("/results/:id", async (req, res) => {
       option.get({ plain: true })
     );
 
-    console.log(choices.is_open);
-
     res.render("vote-results", {
       username: req.session.username,
       loggedIn: req.session.loggedIn,
