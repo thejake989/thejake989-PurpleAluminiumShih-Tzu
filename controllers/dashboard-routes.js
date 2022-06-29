@@ -128,7 +128,13 @@ router.get("/results/:id", async (req, res) => {
       count.get({ plain: true })
     );
 
-    let { voter_count } = voterCount[0];
+    let voter_count;
+
+    if (voterCount[0] === undefined) {
+      voter_count = 0;
+    } else {
+      voter_count = voterCount[0].voter_count;
+    }
 
     res.render("vote-results", {
       username: req.session.username,
