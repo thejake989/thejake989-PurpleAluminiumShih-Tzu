@@ -5,7 +5,11 @@
       <li
         class="border border-green-200 hover:border-green-500 transition-all ease-in-out rounded"
       >
+      {{#if is_open}}
         <a class="p-4 block" href="/dashboard/poll/{{id}}">
+      {{else}}
+      <a class="p-4 block" href="/dashboard/results/{{id}}">
+      {{/if}}
           <div class="flex justify-between items-center">
             <p class="font-bold text-lg">{{title}}</p>
             {{#if is_open}}

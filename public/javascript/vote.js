@@ -1,6 +1,7 @@
 async function voteSubmitHandler(event) {
   event.preventDefault();
 
+  const ulEl = document.getElementById("choice-list");
   let liEl = document.getElementById("choice-list").getElementsByTagName("li");
   const liArray = [];
 
@@ -10,14 +11,29 @@ async function voteSubmitHandler(event) {
     const choiceValue = el.getElementsByTagName("select");
 
     liArray.push({
+      choice_name: el.dataset.choice,
       // choice id
       id: el.dataset.choice_id,
-      choice_name: el.dataset.choice,
+      poll_id: ulEl.dataset.poll_id,
       rank_value: choiceValue[0].value,
     });
   }
 
-  console.log(liArray);
+  liArray.forEach((element) => {
+    const response = fetch("/api/choices/rank", {
+      method: "put",
+      body: JSON.stringify({
+        id: element.id,
+        poll_id: element.poll_id,
+        rank_value: element.rank_value,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+  });
+
+  alert("Vote submitted!");
+
+  document.location.replace("/polls");
 }
 
 document

@@ -3,7 +3,7 @@
   <h3>{{title}}</h3>
   <form id="vote-form">
     <div class="flex justify-between items-center">
-      <ul id="choice-list">
+      <ul id="choice-list" data-poll_id="{{id}}">
         {{#each choices as |choice|}}
           <li
             class="border border-green-500 px-4 py-2 rounded"
