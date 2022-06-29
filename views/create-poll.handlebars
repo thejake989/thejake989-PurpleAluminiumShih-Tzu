@@ -1,4 +1,8 @@
-<article class="w-full max-w-screen-md mx-auto flex flex-col gap-y-10">
+<article
+  class="w-full max-w-screen-md mx-auto flex flex-col gap-y-10"
+  data-poll-id=""
+  id="poll-parent"
+>
   <h2 class="text-xl font-bold md:text-3xl">Create a new poll</h2>
   <form id="create-poll">
     <label class="flex flex-col">
@@ -11,12 +15,23 @@
     </label>
     <p
       id="error"
-      class="opacity-0 transition-opacity ease-in-out duration-300 font-bold text-sm text-red-400"
-    >error</p>
+      class="opacity-0 h-3 transition-opacity ease-in-out duration-300 font-bold text-sm text-red-400"
+    ></p>
     <button
-      class="bg-green-400 text-white font-bold p-3 rounded mt-4"
+      class="bg-green-500 hover:bg-green-600 text-white font-bold p-3 rounded mt-4"
       type="submit"
+      id="next-step-btn"
     >Next Step</button>
+  </form>
+  <form id="choices">
+    <h2 class="font-bold text-xl mb-4">Enter your choices</h2>
+    <div
+      class="grid grid-cols-[1fr_auto] border-2 border-green-400 rounded overflow-hidden"
+    >
+      <input class="p-3" type="text" placeholder="Enter choice name" required />
+      <button class="p-3 bg-green-500 text-white" type="submit">Add choice</button>
+    </div>
+
   </form>
 </article>
 <script src="/javascript/poll.js"></script>

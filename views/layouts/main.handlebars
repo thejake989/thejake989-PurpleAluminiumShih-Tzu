@@ -116,7 +116,7 @@
             <ul class="p-4 flex flex-col gap-y-5">
               <li><a href="/">Home</a></li>
               <li><a href="/dashboard">Dashboard</a></li>
-              <li><a href="#">Polls</a></li>
+              <li><a href="/polls">Polls</a></li>
               <li><a href="/dashboard/create">Create Poll</a></li>
               <li class="mt-4 border border-gray-700 p-2 rounded text-right">
                 {{#if loggedIn}}
@@ -130,7 +130,7 @@
           </div>
         </div>
       </header>
-      <main class="p-6">
+      <main class="p-6 overflow-scroll">
         {{{body}}}
       </main>
 

@@ -23,7 +23,7 @@ router.get("/", withAuth, async (req, res) => {
   } catch (err) {}
 });
 
-router.get("/create", async (req, res) => {
+router.get("/create", withAuth, async (req, res) => {
   res.render("create-poll", {
     username: req.session.username,
     loggedIn: req.session.loggedIn,
