@@ -1,0 +1,27 @@
+<article>
+  <p>Please select your top three options below, leaving the rest blank</p>
+  <h3>{{title}}</h3>
+  <form id="vote-form">
+    <div class="flex justify-between items-center">
+      <ul id="choice-list">
+        {{#each choices as |choice|}}
+          <li
+            class="border border-green-500 px-4 py-2 rounded"
+            data-choice="{{choice_name}}"
+            data-choice_id="{{id}}"
+          >
+            <label for="choice" class="choice">{{choice_name}}</label>
+            <select name="choice">
+              <option value="0">None</option>
+              <option value="6">1st Place</option>
+              <option value="3">2nd Place</option>
+              <option value="2">3rd Place</option>
+            </select>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+    <button type="submit" class="button">Submit Votes</button>
+  </form>
+</article>
+<script src="/javascript/vote.js"></script>

@@ -34,6 +34,53 @@ router.get("/create/choices", async (req, res) => {
   res.render("choices");
 });
 
+router.get("/poll/:id", async (req, res) => {
+  try {
+    const dbData = await Poll.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [
+        {
+          model: User,
+          attributes: ["username"],
+        },
+        {
+          model: Choices,
+          attributes: [
+            "id",
+            "choice_name",
+            [
+              sequelize.literal(
+                "(SELECT SUM(rank_value) FROM vote WHERE choices.id = vote.choice_id)"
+              ),
+              "rank_score",
+            ],
+          ],
+        },
+      ],
+    });
+
+    const choices = new Object(dbData);
+    const list = choices.dataValues.choices.map((option) =>
+      option.get({ plain: true })
+    );
+
+    // console.log(choices.dataValues.choices[0]);
+    // console.log(choices.dataValues.choices[1]);
+    console.log(list);
+
+    res.render("vote-info", {
+      title: choices.dataValues.title,
+      choices: list,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+  // res.render("choices-info");
+});
+
 module.exports = router;
 
 //If not working apply the get route - withAuth,
