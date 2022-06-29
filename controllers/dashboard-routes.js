@@ -66,14 +66,12 @@ router.get("/poll/:id", async (req, res) => {
       option.get({ plain: true })
     );
 
-    // console.log(choices.dataValues.choices[0]);
-    // console.log(choices.dataValues.choices[1]);
-    console.log(list);
-
     res.render("vote-info", {
       username: req.session.username,
       loggedIn: req.session.loggedIn,
       title: choices.dataValues.title,
+      // poll id
+      id: choices.dataValues.id,
       choices: list,
     });
   } catch (err) {
