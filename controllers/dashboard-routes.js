@@ -71,6 +71,8 @@ router.get("/poll/:id", async (req, res) => {
     console.log(list);
 
     res.render("vote-info", {
+      username: req.session.username,
+      loggedIn: req.session.loggedIn,
       title: choices.dataValues.title,
       choices: list,
     });
