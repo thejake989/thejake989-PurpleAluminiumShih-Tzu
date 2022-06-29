@@ -25,17 +25,33 @@ router.get("/", async (req, res) => {
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/dashboard");
+    return;
   }
   res.render("login");
 });
+
 // Render Signup
 router.get("/signup", (req, res) => {
-  // SET UP REDIRECT LATER
-
-  // if(req.session.loggedIn) {
-  //   res.redirect("/")
-  //   return
-  // }
   res.render("signup");
 });
+
+// Render all polls
+router.get("/polls", async (req, res) => {
+  try {
+    const dbData = await Poll.findAll({
+      attributes: ["id", "title", "is_open"],
+      include: {
+        model: User,
+        attributes: ["username"],
+      },
+    });
+    const polls = dbData.map((poll) => poll.get({ plain: true }));
+    res.render("polls", {
+      polls,
+      username: req.session.username,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {}
+});
+
 module.exports = router;

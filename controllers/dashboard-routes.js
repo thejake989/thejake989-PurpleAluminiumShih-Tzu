@@ -24,7 +24,10 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 router.get("/create", async (req, res) => {
-  res.render("create-poll");
+  res.render("create-poll", {
+    username: req.session.username,
+    loggedIn: req.session.loggedIn,
+  });
 });
 
 router.get("/create/choices", async (req, res) => {
