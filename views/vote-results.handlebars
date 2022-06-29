@@ -1,0 +1,17 @@
+<article>
+  <h3>Poll Results for <span>{{title}}</span></h3>
+  <ul>
+    {{#each choices as |choice|}}
+      <li>
+        {{choice_name}}:
+        {{rank_score}}
+        points
+      </li>
+    {{/each}}
+  </ul>
+  {{#if is_open}}
+    <button type="submit" class="button">Close Poll</button>
+  {{else}}
+    <h3>This poll has closed</h3>
+  {{/if}}
+</article>
