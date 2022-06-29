@@ -61,7 +61,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const dbResponse = await Poll.create({
-      is_open: req.body.is_open,
+      is_open: true,
       title: req.body.title,
       user_id: req.session.user_id,
     });
