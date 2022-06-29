@@ -52,7 +52,7 @@ async function addChoiceHandler(event) {
   choicesList.append(choiceLi);
 
   // Show finish button if at least two choices added
-  if (choicesArr.length >= 2) {
+  if (choicesArr.length >= 3) {
     finishBtn.style.display = "block";
   }
 }
