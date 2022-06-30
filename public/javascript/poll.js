@@ -47,11 +47,11 @@ async function addChoiceHandler(event) {
   choicesArr.push(choiceText);
   choiceName.value = "";
   const choiceLi = document.createElement("li");
-  choiceLi.className = "p-2 rounded bg-green-600 text-white";
+  choiceLi.className = "p-2 rounded bg-green-500 text-white";
   choiceLi.innerText = choiceText;
   choicesList.append(choiceLi);
 
-  // Show finish button if at least two choices added
+  // Show finish button if at least three choices added
   if (choicesArr.length >= 3) {
     finishBtn.style.display = "block";
   }
