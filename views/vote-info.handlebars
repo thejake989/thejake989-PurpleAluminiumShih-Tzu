@@ -1,17 +1,18 @@
 <article>
-  <p class="mb-4 text-2xl md:text-3xl font-bold">Please select your top three options below, leaving the rest blank.</p>
-  <h3 class="mb-4 text-2xl md:text-3xl font-bold text-blue-500 mb-8">{{title}}</h3>
+  <p class="mb-4 md:text-2xl font-bold">Please select your top three options
+    below, leaving the rest blank.</p>
+  <h3 class="text-xl md:text-2xl font-bold text-blue-500 mb-8">{{title}}</h3>
   <form id="vote-form">
     <div class="flex justify-between items-center">
-      <ul id="choice-list" data-poll_id="{{id}}">
+      <ul id="choice-list" class="flex flex-col gap-y-4" data-poll_id="{{id}}">
         {{#each choices as |choice|}}
           <li
-            class="border border-green-500 px-4 py-2 rounded"
+            class="border border-green-500 px-4 py-2 flex justify-between items-center rounded"
             data-choice="{{choice_name}}"
             data-choice_id="{{id}}"
           >
-            <label for="choice" class="mb-4 text-2xl md:text-xl font-bold">{{choice_name}}</label>
-            <select name="choice">
+            <label for="choice" class="font-bold">{{choice_name}}</label>
+            <select name="choice" class="ml-6 p-2">
               <option value="0">None</option>
               <option class="text-green-500" value="6">1st Place</option>
               <option class="text-yellow-500" value="3">2nd Place</option>
@@ -21,7 +22,11 @@
         {{/each}}
       </ul>
     </div>
-    <button type="submit" class="inline-block text-xl font-medium text-green-500 hover:text-green-600 hover:underline mt-5 ml-8" type="submit">Submit Votes</button>
+    <button
+      type="submit"
+      class="bg-green-500 hover:bg-green-400 text-white p-4 rounded mt-8"
+      type="submit"
+    >Submit Votes</button>
   </form>
 </article>
 <script src="/javascript/vote.js"></script>
