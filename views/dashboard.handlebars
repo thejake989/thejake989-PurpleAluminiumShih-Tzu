@@ -1,6 +1,6 @@
 <section class="w-full max-w-screen-md mx-auto">
 {{#if polls.length}}
-  <ul class="flex flex-col gap-y-4">
+  <ul class="flex flex-col gap-y-4" id="dashboard-polls">
     {{#each polls as |poll|}}
       <li data-poll-id="{{id}}">{{> poll-info-dashboard poll }}</li>
     {{/each}}
@@ -11,3 +11,4 @@
 </div>
 {{/if}}
 </section>
+<script src="/javascript/delete.js"></script>

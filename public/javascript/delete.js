@@ -1,15 +1,18 @@
-const deletePostHandler = async function(event) {
-    console.log("clicked", event)
-    event.preventDefault();
-    const postId = document.getElementById('post-id')
+const parentEl = document.getElementById("dashboard-polls");
 
-    fetch("/api/choices/:id" + postId.value, {
-        method: "delete"
-    })
-    .then(function() {
-        document.location.replace("/dashboard");
-    })
-    .catch(err => console.log(err))
+async function deletePollHandler(e) {
+  if (e.target.classList.contains("delete-btn")) {
+    const pollId = e.target.parentNode.parentNode.dataset.pollId;
+    console.log(pollId);
+    const response = await fetch(`/api/polls/${pollId}`, {
+      method: "delete",
+      headers: { "Content-Type": "application/json" },
+    });
+    if (response.ok) {
+      document.location.replace("/dashboard");
+    }
+  }
 }
-
-document.querySelector("#delete-btn").addEventListener("click", deletePostHandler);
+if (parentEl) {
+  parentEl.addEventListener("click", deletePollHandler);
+}
