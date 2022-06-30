@@ -31,6 +31,7 @@ Choices.belongsTo(Poll, {
 });
 
 Choices.hasMany(Vote, {
+  onDelete: "cascade",
   foreignKey: "choices_id",
 });
 
@@ -44,6 +45,7 @@ Vote.belongsTo(Poll, {
 });
 
 Vote.belongsTo(Choices, {
+  onDelete: "cascase",
   foreignKey: "choices_id",
 });
 
