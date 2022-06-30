@@ -1,6 +1,6 @@
-<article>
+<article class="w-full flex justify-between items-center gap-x-5">
   <a
-    class="block rounded border border-green-400 p-4 hover:border-green-600 transition-all ease-in-out"
+    class="block rounded border w-full border-green-400 p-4 hover:border-green-600 transition-all ease-in-out"
     href="/dashboard/results/{{id}}"
   >
     <div class="flex justify-between items-center">
@@ -8,8 +8,19 @@
       {{#if is_open}}
         <p class="border border-green-500 px-4 py-2 rounded">Poll is open</p>
       {{else}}
-        <p class="bg-gray-300 text-white px-4 py-2 rounded">Poll closed</p>
+        <p
+          class="border-2 text-center text-sm border-gray-200 px-4 py-2 rounded"
+        >
+          Poll closed
+          <br />
+          <span class="font-bold text-green-400">View Results</span>
+        </p>
       {{/if}}
     </div>
   </a>
+  <div
+    class="delete-btn cursor-pointer p-2 rounded hover:bg-red-300 transition-colors ease-in-out"
+  >
+    <img src="/images/trashicon.svg" alt="delete poll icon" />
+  </div>
 </article>

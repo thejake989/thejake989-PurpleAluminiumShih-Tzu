@@ -1,5 +1,5 @@
 <!--Sign up form-->
-<section class="py-24 md:py-32 bg-white" style="background-position: center;">
+<section class="bg-white" style="background-position: center;">
   <div class="container px-4 mx-auto">
     <div class="max-w-sm mx-auto">
       <div class="mb-6 text-center">
@@ -20,6 +20,7 @@
             id="username-signup"
             type="text"
             placeholder=""
+            required
           />
         </div>
         <div class="mb-6">
@@ -30,8 +31,9 @@
           <input
             class="appearance-none block w-full p-3 leading-5 text-coolGray-900 border border-coolGray-200 rounded-lg shadow-md placeholder-coolGray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
             id="email-signup"
-            type="text"
+            type="email"
             placeholder=""
+            required
           />
         </div>
         <div class="mb-4">
@@ -44,6 +46,7 @@
             id="password-signup"
             type="password"
             placeholder="min 8 characters"
+            required
           />
         </div>
         <p class="text-center">

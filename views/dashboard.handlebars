@@ -2,7 +2,7 @@
 {{#if polls.length}}
   <ul class="flex flex-col gap-y-4">
     {{#each polls as |poll|}}
-      <li>{{> poll-info-dashboard poll }}</li>
+      <li data-poll-id="{{id}}">{{> poll-info-dashboard poll }}</li>
     {{/each}}
   </ul>
 {{else}}

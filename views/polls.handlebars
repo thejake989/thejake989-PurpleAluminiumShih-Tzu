@@ -5,26 +5,37 @@
       <li
         class="border border-green-200 hover:border-green-500 transition-all ease-in-out rounded"
       >
-      {{#if is_open}}
-        <a class="p-4 block" href="/dashboard/poll/{{id}}">
-      {{else}}
-      <a class="p-4 block" href="/dashboard/results/{{id}}">
-      {{/if}}
-          <div class="flex justify-between items-center">
-            <p class="font-bold text-lg">{{title}}</p>
-            {{#if is_open}}
+        {{#if is_open}}
+          <a href="/dashboard/poll/{{id}}" class="p-4 block">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-bold text-lg">{{title}}</p>
+                <p class="text-gray-600">{{user.username}}</p>
+              </div>
               <p class="py-2 px-4 rounded bg-green-500 text-white">
-                Poll is open
+                Poll Open
               </p>
-            {{else}}
-              <p class="py-2 px-4 rounded bg-gray-500 text-white">
-                Poll is closed
+            </div>
+          </a>
+        {{else}}
+          <a href="/dashboard/results/{{id}}" class="p-4 block">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-bold text-lg">{{title}}</p>
+                <p class="text-gray-600">{{user.username}}</p>
+              </div>
+              <p
+                class="py-2 px-4 rounded border-2 border-gray-200 text-center text-sm"
+              >
+                Poll Closed
+                <br />
+                <span class="font-bold text-green-500">View Results</span>
               </p>
-            {{/if}}
-          </div>
-          <p class="text-gray-600">Created by: {{user.username}}</p>
-        </a>
+            </div>
+          </a>
+        {{/if}}
       </li>
     {{/each}}
+
   </ul>
 </article>
