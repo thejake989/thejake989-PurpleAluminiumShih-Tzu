@@ -27,6 +27,7 @@ Vote.init(
       },
     },
     choice_id: {
+      onDelete: "cascade",
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {

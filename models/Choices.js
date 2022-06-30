@@ -19,6 +19,7 @@ Choices.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+      onDelete: "cascade",
     },
     choice_name: {
       type: DataTypes.STRING,
