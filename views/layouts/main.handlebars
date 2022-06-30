@@ -1,0 +1,149 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Ranked Choice Voting</title>
+  </head>
+
+  <body>
+    <div
+      class="w-screen h-screen relative overflow-x-hidden grid grid-rows-layout gap-y-8"
+    >
+      <!-- Nav Bar -->
+      <header
+        class="flex justify-between md:grid grid-cols-[auto_1fr_auto] items-center p-6 md:mt-6"
+      >
+        {{! Site Title }}
+        <div>
+          <p class="font-bold text-xl">VotingWith<br />Friends</p>
+        </div>
+        <div class="hidden md:block justify-self-center border-b">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-wrap items-center p-2">
+              <ul class="grid grid-cols-4 justify-items-center">
+
+                <!--Home button-->
+                <li class="">
+                  <a
+                    class="flex flex-wrap items-center text-base font-medium text-coolGray-500 hover:text-green-500 border-b-2 border-transparent hover:border-green-500"
+                    href="http://localhost:3001/"
+                  >
+                    <img class="mr-2" src="/images/home.svg" alt="home icon" />
+                    Home
+                  </a>
+                </li>
+
+                <!--Dashboard button-->
+                <li class="">
+                  <a
+                    class="flex flex-wrap items-center text-base font-medium text-coolGray-500 hover:text-blue-500 border-b-2 border-transparent hover:border-blue-500"
+                    href="http://localhost:3001/dashboard"
+                  >
+                    <img
+                      class="mr-2"
+                      src="/images/dashboard.svg"
+                      alt="dashboard icon"
+                    />
+                    Dashboard
+                  </a>
+                </li>
+
+                <!--Polls button-->
+                <li class="">
+                  <a
+                    class="flex flex-wrap items-center text-base font-medium text-coolGray-500 hover:text-red-500 border-b-2 border-transparent hover:border-red-500"
+                    href="/polls"
+                  >
+                    <img
+                      src="/images/polls.svg"
+                      alt="polls icon"
+                      class="mr-2"
+                    />
+                    Polls
+                  </a>
+                </li>
+
+                <!--Create a new poll button-->
+                <li class="">
+                  <a
+                    class="flex flex-wrap items-center text-base font-medium hover:text-teal-500 border-b-2 border-transparent hover:border-teal-500"
+                    href="/dashboard/create"
+                  >
+                    <img
+                      src="/images/create.svg"
+                      alt="create poll icon"
+                      class="mr-2"
+                    />
+                    Create New Poll
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        {{! Login and Logout buttons }}
+        <div class="hidden md:block ml-auto">
+          {{#if loggedIn}}
+            <div class="flex flex-col justify-end">
+              <p class="text-green-500 font-bold">{{username}}</p>
+              <button class="underline ml-auto logout-btn">Logout</button>
+            </div>
+          {{else}}
+            <a
+              class="px-4 py-2 rounded bg-green-500 text-white"
+              href="/login"
+            >Login</a>
+          {{/if}}
+        </div>
+        {{! Hamburger }}
+        <div class="md:hidden cursor-pointer w-6 h-4" id="burger-toggle">
+          <div class="w-full h-0.5 bg-green-400 rounded"></div>
+          <div class="w-full h-0.5 bg-green-400 rounded my-1"></div>
+          <div class="w-full h-0.5 bg-green-400 rounded"></div>
+        </div>
+        {{! Hidden menu. Activated through javascript }}
+        <div
+          id="hidden-menu"
+          class="absolute md:hidden w-2/3 p-4 bg-black text-white top-0 -right-full transition-all ease-in-out duration-500"
+        >
+          <div class="flex flex-col">
+            <div
+              class="border inline-block ml-auto mb-6 cursor-pointer text-red-500 text-sm border-red-500 py-0.5 px-2 rounded"
+              id="menu-close-btn"
+            >&#x2715</div>
+            <ul class="p-4 flex flex-col gap-y-5">
+              <li><a href="/">Home</a></li>
+              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a href="/polls">Polls</a></li>
+              <li><a href="/dashboard/create">Create Poll</a></li>
+              <li class="mt-4 border border-gray-700 p-2 rounded text-right">
+                {{#if loggedIn}}
+                  <p class="text-green-400 font-bold">{{username}}</p>
+                  <button class="logout-btn-mobile">Logout</button>
+                {{else}}
+                  <a class="underline" href="/login">Login</a>
+                {{/if}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main class="p-6">
+        {{{body}}}
+      </main>
+      <!-- Footer Section -->
+      <footer>
+        <div class="p-4 text-center">
+          <p class="text-sm font-bold hover:text-Green-500">&copy; 2022 All
+            rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+    {{#if loggedIn}}
+      <script src="/javascript/logout.js"></script>
+    {{/if}}
+    <script src="/javascript/main.js"></script>
+  </body>
+</html>

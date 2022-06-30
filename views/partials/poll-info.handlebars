@@ -1,0 +1,15 @@
+<article>
+  <a
+    class="block rounded border border-green-400 p-4 hover:border-green-600 transition-all ease-in-out"
+    href="/dashboard/poll/{{id}}"
+  >
+    <div class="flex justify-between items-center">
+      <p>{{title}}</p>
+      {{#if is_open}}
+        <p class="border border-green-500 px-4 py-2 rounded">Poll is open</p>
+      {{else}}
+        <p class="bg-gray-300 text-white px-4 py-2 rounded">Poll closed</p>
+      {{/if}}
+    </div>
+  </a>
+</article>

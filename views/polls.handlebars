@@ -1,0 +1,41 @@
+<article class="w-full max-w-screen-md mx-auto">
+  <h2 class="text-xl md:text-3xl font-bold mb-8">Polls</h2>
+  <ul class="flex flex-col gap-y-4">
+    {{#each polls as |poll|}}
+      <li
+        class="border border-green-200 hover:border-green-500 transition-all ease-in-out rounded"
+      >
+        {{#if is_open}}
+          <a href="/dashboard/poll/{{id}}" class="p-4 block">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-bold text-lg">{{title}}</p>
+                <p class="text-gray-600">{{user.username}}</p>
+              </div>
+              <p class="py-2 px-4 rounded bg-green-500 text-white">
+                Poll Open
+              </p>
+            </div>
+          </a>
+        {{else}}
+          <a href="/dashboard/results/{{id}}" class="p-4 block">
+            <div class="flex justify-between items-center">
+              <div>
+                <p class="font-bold text-lg">{{title}}</p>
+                <p class="text-gray-600">{{user.username}}</p>
+              </div>
+              <p
+                class="py-2 px-4 rounded border-2 border-gray-200 text-center text-sm"
+              >
+                Poll Closed
+                <br />
+                <span class="font-bold text-green-500">View Results</span>
+              </p>
+            </div>
+          </a>
+        {{/if}}
+      </li>
+    {{/each}}
+
+  </ul>
+</article>

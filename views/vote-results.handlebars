@@ -1,0 +1,24 @@
+<article class="m-2">
+  <h3 class="mb-4 text-2xl md:text-3xl font-bold mb-10">Poll Results for: <span class="mb-4 text-2xl md:text-3xl font-bold text-blue-500 ml-1">{{title}}</span></h3>
+  <h4 class="mb-4 text-2xl md:text-2xl font-bold underline">Number of Voters: {{voters}}</h4>
+  <ul>
+    {{#each choices as |choice|}}
+      <li class="mb-4 text-2xl md:text-xl font-bold">
+        {{choice_name}}:
+        {{rank_score}}
+        points
+      </li>
+    {{/each}}
+  </ul>
+  {{#if is_open}}
+    <button
+      type="submit"
+      class="inline-block text-xl font-medium text-red-500 hover:text-red-600 hover:underline mt-5 ml-8"
+      id="close-poll-btn"
+      data-poll_id="{{id}}"
+    >Close Poll</button>
+    <script src="/javascript/close-poll.js"></script>
+  {{else}}
+    <h3>This poll has closed</h3>
+  {{/if}}
+</article>
