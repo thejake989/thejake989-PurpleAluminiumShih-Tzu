@@ -1,6 +1,6 @@
 <article>
-  <p>Please select your top three options below, leaving the rest blank</p>
-  <h3>{{title}}</h3>
+  <p class="mb-4 text-2xl md:text-3xl font-bold">Please select your top three options below, leaving the rest blank.</p>
+  <h3 class="mb-4 text-2xl md:text-3xl font-bold text-blue-500 mb-8">{{title}}</h3>
   <form id="vote-form">
     <div class="flex justify-between items-center">
       <ul id="choice-list" data-poll_id="{{id}}">
@@ -10,18 +10,18 @@
             data-choice="{{choice_name}}"
             data-choice_id="{{id}}"
           >
-            <label for="choice" class="choice">{{choice_name}}</label>
+            <label for="choice" class="mb-4 text-2xl md:text-xl font-bold">{{choice_name}}</label>
             <select name="choice">
               <option value="0">None</option>
-              <option value="6">1st Place</option>
-              <option value="3">2nd Place</option>
-              <option value="2">3rd Place</option>
+              <option class="text-green-500" value="6">1st Place</option>
+              <option class="text-yellow-500" value="3">2nd Place</option>
+              <option class="text-red-500" value="2">3rd Place</option>
             </select>
           </li>
         {{/each}}
       </ul>
     </div>
-    <button type="submit" class="button">Submit Votes</button>
+    <button type="submit" class="inline-block text-xl font-medium text-green-500 hover:text-green-600 hover:underline mt-5 ml-8" type="submit">Submit Votes</button>
   </form>
 </article>
 <script src="/javascript/vote.js"></script>
