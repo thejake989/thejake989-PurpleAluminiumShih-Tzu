@@ -35,7 +35,7 @@ router.get("/create/choices", async (req, res) => {
   res.render("choices");
 });
 
-router.get("/poll/:id", async (req, res) => {
+router.get("/poll/:id", withAuth, async (req, res) => {
   try {
     const dbData = await Poll.findOne({
       where: {

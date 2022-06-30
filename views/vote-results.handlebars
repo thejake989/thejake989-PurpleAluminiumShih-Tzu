@@ -1,24 +1,47 @@
-<article class="m-2">
-  <h3 class="mb-4 text-2xl md:text-3xl font-bold mb-10">Poll Results for: <span class="mb-4 text-2xl md:text-3xl font-bold text-blue-500 ml-1">{{title}}</span></h3>
-  <h4 class="mb-4 text-2xl md:text-2xl font-bold underline">Number of Voters: {{voters}}</h4>
-  <ul>
+<article class="w-full max-w-screen-lg mx-auto">
+  <div class="flex justify-between items-center">
+    <h3 class="text-2xl md:text-3xl font-bold">Poll Results for:
+      <span
+        class="text-2xl md:text-3xl font-bold text-blue-500 ml-1"
+      >{{title}}</span></h3>
+    {{#if is_open}}
+      <button
+        type="submit"
+        class="p-2 rounded text-white bg-red-400"
+        id="close-poll-btn"
+        data-poll_id="{{id}}"
+      >Close Poll</button>
+
+    {{else}}
+      <p class="p-2 bg-gray-200 rounded">Poll has ended</p>
+    {{/if}}
+  </div>
+  <h4 class="mb-4 text-lg font-bold">Number of Voters:
+    <span
+      class="border border-green-400 text-green-700 px-2 rounded"
+    >{{voters}}</span></h4>
+  <ul class="hidden">
     {{#each choices as |choice|}}
-      <li class="mb-4 text-2xl md:text-xl font-bold">
-        {{choice_name}}:
+      <li data-choice-name="{{choice_name}}" data-choice-rank="{{rank_score}}">
+        <span class="font-bold text-green-600">
+          {{choice_name}}
+        </span>
+        :
         {{rank_score}}
         points
       </li>
     {{/each}}
   </ul>
   {{#if is_open}}
-    <button
-      type="submit"
-      class="inline-block text-xl font-medium text-red-500 hover:text-red-600 hover:underline mt-5 ml-8"
-      id="close-poll-btn"
-      data-poll_id="{{id}}"
-    >Close Poll</button>
     <script src="/javascript/close-poll.js"></script>
-  {{else}}
-    <h3>This poll has closed</h3>
   {{/if}}
+  <canvas class="w-3/4 mt-14 md:w-full md:max-w-lg mx-auto" id="chart"></canvas>
 </article>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"
+  integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script src="/javascript/chart.js"></script>
